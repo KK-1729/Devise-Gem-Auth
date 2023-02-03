@@ -1,7 +1,13 @@
-<% if user_signed_in? %>
-    <div>Welcome <%= current_user.email %></div>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-    <%= button_to "Sign in", new_user_session_path %>
-<% end %>
-<h1>Let's learn Devise gem auth!</h1>
+<%= stylesheet_link_tag "log_in" %>
+
+<div class="page" style="padding: 10%">
+    <div class="login_container">
+        <% if user_signed_in? %>
+            <div class="login_label" style="text-align: center">Welcome <%= current_user.email %></div>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, :class => "login_button" %>
+        <% else %>
+            <%= button_to "Sign in", new_user_session_path %>
+        <% end %>
+        <h1 class="login_header">Let's learn Devise gem auth!</h1>
+    </div>
+</div>
